@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-blackholesimulator"
+version = "0.1.0"
+description = "A NumPy port of kavan010/black_hole: Schwarzschild black hole ray tracing, 2D light bending and a sphere ray tracer."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26", "pillow>=10"]
+
+[project.optional-dependencies]
+viewer = ["pygame-ce>=2.5"]
+dev = ["pytest>=8", "pygame-ce>=2.5"]
+
+[project.scripts]
+blackhole-sim = "blackhole_sim.cli:main"
+
+[tool.setuptools]
+packages = ["blackhole_sim"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
